@@ -3,7 +3,9 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "./firebase.config";
 import { useState } from "react";
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 function App() {
   const [user, setUser] = useState({
